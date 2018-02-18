@@ -14,7 +14,7 @@
     <div id="dappInfo"></div>
   </div>
   <br><br>
-  <h2> Результаты голосования</h2>
+  <h2 class ="text-center"> Результаты голосования</h2>
   <br><br>
 
   <table class="table">
@@ -36,6 +36,22 @@
     </tbody>
   </table>
 
+  <br><br>
+  <p>Ваш выбор:</p>
+  <div class="btn-group" data-toggle="buttons" id="selectVote">
+    <label class="btn btn-primary active">
+      <input type="radio" name="options" id="option1" autocomplete="off" checked>Предложение №1
+    </label>
+    <label class="btn btn-primary">
+      <input type="radio" name="options" id="option2" autocomplete="off">Предложение №2
+    </label>
+    <label class="btn btn-primary">
+      <input type="radio" name="options" id="option3" autocomplete="off">Предложение №3
+    </label>
+    <label class="btn btn-primary">
+      <input type="radio" name="options" id="option4" autocomplete="off">Предложение №4
+    </label>
+  </div>
   <br><br>
   <button class="button btn-default" id="voting" onclick="vote();">Проголосовать</button>
 
