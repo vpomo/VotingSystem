@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>DApp super</title>
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+  <br><br>
+  <div class="alert alert-success">
+    <div id="dappInfo"></div>
+  </div>
+  <br><br>
+  <h2> Результаты голосования</h2>
+  <br><br>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Предложение №1</th>
+      <th>Предложение №2</th>
+      <th>Предложение №3</th>
+      <th>Предложение №4</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><div id="proposalOne"></div></td>
+      <td><div id="proposalTwo"></div></td>
+      <td><div id="proposalThree"></div></td>
+      <td><div id="proposalFor"></div></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <br><br>
+  <button class="button btn-default" id="voting" onclick="vote();">Проголосовать</button>
+
+</div>
+
+<script src="meta.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
