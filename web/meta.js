@@ -23,7 +23,7 @@ function startApp() {
   var addressVoteTwo =  "0x3276bd538a6B8025822dcB53fe36d0633484ABFF";
   var addressVoteThree = "0x57eB7A918f5119c4eE694D891ADaBD50Dbf70257";
   var addressVoteFor =  "0x68706778861D697488CFD401c3848B1b904F8D4D";
-
+  var myWalletAddress = web3.eth.accounts[0];
   var contract = initContract();
 
   contract.balanceOf(addressVoteOne, function(error, data) {
@@ -38,6 +38,9 @@ function startApp() {
   contract.balanceOf(addressVoteFor, function(error, data) {
     $('#proposalFor').html(Number(data)/10**18);
   });
+  contract.balanceOf(myWalletAddress, function(error, data) {
+    $('#walletTokens').html(Number(data)/10**18);
+  });
 
 }
 
@@ -51,15 +54,20 @@ function vote(){
   var addressVoteTwo =  "0x3276bd538a6B8025822dcB53fe36d0633484ABFF";
   var addressVoteThree = "0x57eB7A918f5119c4eE694D891ADaBD50Dbf70257";
   var addressVoteFor =  "0x68706778861D697488CFD401c3848B1b904F8D4D";
-  var voteOne = 0;
-  var voteTwo = 0;
-  var voteFree = 0;
-  var voteFor = 0;
-
+  var balanceOwner = 1*10**18;
+  var checkValue = $('.proposal:checked').val();
+  var addresses = [addressVoteOne, addressVoteTwo, addressVoteThree, addressVoteFor];
+  //alert("checkValue = " + addresses[checkValue]);
     var contract = initContract();
-    contract.balanceOf(addressVoteThree, function(error, data) {
-        alert(Number(data)/10**18);
+    if($('#walletTokens').val() == 0){
+        $('#zeroToken').html("У Вас нет токенов. Вы не можете голосовать");
+        //alert("У Вас нет токенов");
+    } else {
+        $('#zeroToken').html("");
+        contract.transfer(addresses[checkValue], balanceOwner, function(error, data) {
+        alert(data);
       });
+    }
 }
 
 function initContract(){

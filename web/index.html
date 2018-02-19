@@ -14,6 +14,9 @@
     <div id="dappInfo"></div>
   </div>
   <br><br>
+  <p>Ваше количество токенов (шт.):</p>
+  <div id="walletTokens"></div>
+  <br><br>
   <h2 class ="text-center"> Результаты голосования</h2>
   <br><br>
 
@@ -35,26 +38,31 @@
     </tr>
     </tbody>
   </table>
+  <br><br>
+  <div id="zeroToken"></div>
 
   <br><br>
   <p>Ваш выбор:</p>
-  <div class="btn-group" data-toggle="buttons" id="selectVote">
-    <label class="btn btn-primary active">
-      <input type="radio" name="options" id="option1" autocomplete="off" checked>Предложение №1
+  <div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-primary">
+      <input type="radio" name="purityradio" class="proposal" value="0" checked="">
+      Предложение №1
     </label>
     <label class="btn btn-primary">
-      <input type="radio" name="options" id="option2" autocomplete="off">Предложение №2
+      <input type="radio" name="purityradio" class="proposal" value="1">
+      Предложение №2
     </label>
     <label class="btn btn-primary">
-      <input type="radio" name="options" id="option3" autocomplete="off">Предложение №3
+      <input type="radio" name="purityradio" class="proposal" value="2">
+      Предложение №3
     </label>
     <label class="btn btn-primary">
-      <input type="radio" name="options" id="option4" autocomplete="off">Предложение №4
+      <input type="radio" name="purityradio" class="proposal" value="3">
+      Предложение №4
     </label>
   </div>
   <br><br>
   <button class="button btn-default" id="voting" onclick="vote();">Проголосовать</button>
-
 </div>
 
 <script src="meta.js" type="text/javascript" charset="utf-8"></script>
