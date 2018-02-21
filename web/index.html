@@ -10,14 +10,19 @@
 <body>
 <div class="container">
   <br><br>
-  <div class="alert alert-success">
-    <div id="dappInfo"></div>
+  <div class="row">
+    <div class="col-md-8 col-sm-8 col-lg-8">
+      <div class="alert alert-success">
+        <div id="dappInfo"></div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-4 col-lg-4">
+      Ваше количество токенов (шт.):
+      <strong id="walletTokens"></strong>
+    </div>
   </div>
-  <br><br>
-  <p>Ваше количество токенов (шт.):</p>
-  <div id="walletTokens"></div>
-  <br><br>
   <h2 class ="text-center"> Результаты голосования</h2>
+  <input id="numberTokens" name="numberTokens" value="" type="hidden">
   <br><br>
 
   <table class="table">
@@ -38,7 +43,6 @@
     </tr>
     </tbody>
   </table>
-  <br><br>
   <div id="zeroToken"></div>
 
   <br><br>
@@ -65,6 +69,6 @@
   <button class="button btn-default" id="voting" onclick="vote();">Проголосовать</button>
 </div>
 
-<script src="meta.js" type="text/javascript" charset="utf-8"></script>
+<script src="metaScript.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

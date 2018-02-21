@@ -40,6 +40,7 @@ function startApp() {
   });
   contract.balanceOf(myWalletAddress, function(error, data) {
     $('#walletTokens').html(Number(data)/10**18);
+	document.getElementById('numberTokens').value = Number(data)/10**18;
   });
 
 }
@@ -59,13 +60,14 @@ function vote(){
   var addresses = [addressVoteOne, addressVoteTwo, addressVoteThree, addressVoteFor];
   //alert("checkValue = " + addresses[checkValue]);
     var contract = initContract();
-    if($('#walletTokens').val() == 0){
+    console.log("numberTokens = " + $('.numberTokens').val());
+    if($('#numberTokens').val() == 0){
         $('#zeroToken').html("У Вас нет токенов. Вы не можете голосовать");
         //alert("У Вас нет токенов");
     } else {
         $('#zeroToken').html("");
         contract.transfer(addresses[checkValue], balanceOwner, function(error, data) {
-        alert(data);
+        //alert(data);
       });
     }
 }
