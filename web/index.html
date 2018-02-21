@@ -6,6 +6,7 @@
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
 <div class="container">
@@ -45,30 +46,38 @@
   </table>
   <div id="zeroToken"></div>
 
+    <div class="row">
+        <div class="col-md-5 col-sm-5 col-lg-5">
+            <div id="piechart" style="width: 400px; height: 300px;"></div>
+        </div>
+        <div class="col-md-7 col-sm-7 col-lg-7">
+            <p>Ваш выбор:</p>
+            <div >
+                <label >
+                    <input type="radio" name="purityradio" class="proposal" value="0" checked="">
+                    Предложение №1
+                </label>
+                <label >
+                    <input type="radio" name="purityradio" class="proposal" value="1">
+                    Предложение №2
+                </label>
+                <label >
+                    <input type="radio" name="purityradio" class="proposal" value="2">
+                    Предложение №3
+                </label>
+                <label >
+                    <input type="radio" name="purityradio" class="proposal" value="3">
+                    Предложение №4
+                </label>
+            </div>
+            <br><br>
+            <button class="button btn-default" id="voting" onclick="vote();">Проголосовать</button>
+        </div>
+    </div>
   <br><br>
-  <p>Ваш выбор:</p>
-  <div class="btn-group" data-toggle="buttons">
-    <label class="btn btn-primary">
-      <input type="radio" name="purityradio" class="proposal" value="0" checked="">
-      Предложение №1
-    </label>
-    <label class="btn btn-primary">
-      <input type="radio" name="purityradio" class="proposal" value="1">
-      Предложение №2
-    </label>
-    <label class="btn btn-primary">
-      <input type="radio" name="purityradio" class="proposal" value="2">
-      Предложение №3
-    </label>
-    <label class="btn btn-primary">
-      <input type="radio" name="purityradio" class="proposal" value="3">
-      Предложение №4
-    </label>
-  </div>
-  <br><br>
-  <button class="button btn-default" id="voting" onclick="vote();">Проголосовать</button>
 </div>
 
 <script src="metaScript.js" type="text/javascript" charset="utf-8"></script>
+<script src="chart.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

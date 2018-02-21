@@ -14,7 +14,8 @@ window.addEventListener('load', function() {
     }
     startApp();
   } else {
-    alert('Please use Chrome, install Metamask and then try again!')
+    $('#dappInfo').html("Пожалуйста используйте Chrome или Firefox, установите  расширение Metamask и повторите запрос!");
+    //alert('Please use Chrome or Firefox, install Metamask and then try again!')
   }
 })
 
