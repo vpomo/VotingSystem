@@ -1,83 +1,111 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>DApp super</title>
-  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <title>DApp super</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
-  <br><br>
-  <div class="row">
-    <div class="col-md-8 col-sm-8 col-lg-8">
-      <div class="alert alert-success">
-        <div id="dappInfo"></div>
-      </div>
+    <br><br>
+    <div class="row">
+        <div class="col-md-8 col-sm-8 col-lg-8">
+            <div class="alert alert-success">
+                <div id="dappInfo"></div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-lg-4">
+            Ваше количество токенов (шт.):
+            <strong id="walletTokens"></strong>
+        </div>
     </div>
-    <div class="col-md-4 col-sm-4 col-lg-4">
-      Ваше количество токенов (шт.):
-      <strong id="walletTokens"></strong>
-    </div>
-  </div>
-  <h2 class ="text-center"> Результаты голосования</h2>
-  <input id="numberTokens" name="numberTokens" value="" type="hidden">
-  <br><br>
+    <h2 class="text-center"> Результаты голосования</h2>
+    <input id="numberTokens" name="numberTokens" value="" type="hidden">
+    <input id="countProposalOne" name="countProposalOne" value="" type="hidden">
+    <input id="countProposalTwo" name="countProposalTwo" value="" type="hidden">
+    <input id="countProposalThree" name="countProposalThree" value="" type="hidden">
+    <input id="countProposalFor" name="countProposalFor" value="" type="hidden">
 
-  <table class="table">
-    <thead>
-    <tr>
-      <th>Предложение №1</th>
-      <th>Предложение №2</th>
-      <th>Предложение №3</th>
-      <th>Предложение №4</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td><div id="proposalOne"></div></td>
-      <td><div id="proposalTwo"></div></td>
-      <td><div id="proposalThree"></div></td>
-      <td><div id="proposalFor"></div></td>
-    </tr>
-    </tbody>
-  </table>
-  <div id="zeroToken"></div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Предложение №1</th>
+            <th>Предложение №2</th>
+            <th>Предложение №3</th>
+            <th>Предложение №4</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <div id="proposalOne"></div>
+            </td>
+            <td>
+                <div id="proposalTwo"></div>
+            </td>
+            <td>
+                <div id="proposalThree"></div>
+            </td>
+            <td>
+                <div id="proposalFor"></div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div id="zeroToken"></div>
 
     <div class="row">
-        <div class="col-md-5 col-sm-5 col-lg-5">
-            <div id="piechart" style="width: 400px; height: 300px;"></div>
+        <div class="col-md-8 col-sm-8 col-lg-8">
+            <div id="piechart" style="width: 600px; height: 400px;"></div>
         </div>
-        <div class="col-md-7 col-sm-7 col-lg-7">
+        <div class="col-md-4 col-sm-4 col-lg-4">
             <p>Ваш выбор:</p>
-            <div >
-                <label >
-                    <input type="radio" name="purityradio" class="proposal" value="0" checked="">
-                    Предложение №1
-                </label>
-                <label >
-                    <input type="radio" name="purityradio" class="proposal" value="1">
-                    Предложение №2
-                </label>
-                <label >
-                    <input type="radio" name="purityradio" class="proposal" value="2">
-                    Предложение №3
-                </label>
-                <label >
-                    <input type="radio" name="purityradio" class="proposal" value="3">
-                    Предложение №4
-                </label>
-            </div>
+            <ul>
+                <li>
+                    <label>
+                        <input type="radio" name="purityradio" class="proposal" value="0" checked="">
+                        Предложение №1
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" name="purityradio" class="proposal" value="1">
+                        Предложение №2
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" name="purityradio" class="proposal" value="2">
+                        Предложение №3
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" name="purityradio" class="proposal" value="3">
+                        Предложение №4
+                    </label>
+                </li>
+            </ul>
             <br><br>
             <button class="button btn-default" id="voting" onclick="vote();">Проголосовать</button>
         </div>
     </div>
-  <br><br>
+    <br><br>
 </div>
 
 <script src="metaScript.js" type="text/javascript" charset="utf-8"></script>
-<script src="chart.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

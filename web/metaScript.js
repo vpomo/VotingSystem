@@ -29,22 +29,47 @@ function startApp() {
 
   contract.balanceOf(addressVoteOne, function(error, data) {
     $('#proposalOne').html(Number(data)/10**18);
+    document.getElementById('countProposalOne').value = Number(data)/10**18;
   });
   contract.balanceOf(addressVoteTwo, function(error, data) {
     $('#proposalTwo').html(Number(data)/10**18);
+    document.getElementById('countProposalTwo').value = Number(data)/10**18;
   });
   contract.balanceOf(addressVoteThree, function(error, data) {
     $('#proposalThree').html(Number(data)/10**18);
-  });
+    document.getElementById('countProposalThree').value = Number(data)/10**18;
+});
   contract.balanceOf(addressVoteFor, function(error, data) {
     $('#proposalFor').html(Number(data)/10**18);
+    document.getElementById('countProposalFor').value = Number(data)/10**18;
   });
   contract.balanceOf(myWalletAddress, function(error, data) {
     $('#walletTokens').html(Number(data)/10**18);
 	document.getElementById('numberTokens').value = Number(data)/10**18;
   });
 
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
 }
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Название', 'Число голосов'],
+          ['Предложение 1', Number($('#countProposalOne').val())],
+          ['Предложение 2', Number($('#countProposalTwo').val())],
+          ['Предложение 3', Number($('#countProposalThree').val())],
+          ['Предложение 4', Number($('#countProposalFor').val())]
+        ]);
+        var options = {
+          title: 'Распределение голосов'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
 
 $(document).ready(function(){
 //https://developers.google.com/chart/interactive/docs/gallery/piechart
@@ -86,3 +111,4 @@ function initContract(){
   return contract;
 
 }
+
